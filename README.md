@@ -1,25 +1,27 @@
 # AtlasQueue
 
-A compact, production-flavored example of a **high-volume background processing** system built on **.NET 8**, **ASP.NET Core**, **EF Core (SQL Server)**, and **async channels**—plus a tiny static dashboard.
+A compact, production-style example of a **high-volume background processing system** built with **.NET 8**, **ASP.NET Core**, **EF Core (SQL Server)**, and **async channels**, with a lightweight static dashboard.  
 
-It demonstrates:
-- Batch dequeue/processing with a `BackgroundService`
+It showcases patterns for **scalable, reliable, and observable processing** that are common in enterprise systems.  
+
+## Key Features
+- Batch dequeue and processing using `BackgroundService`
 - Bounded channel for back-pressure (`System.Threading.Channels`)
-- Clean layering (Domain / Infrastructure / API / Web)
-- EF Core with SQL Server and fluent configurations
-- Resiliency (Polly retry) and structured events per work item
-- Caching list results (in-memory)
-- Simple SPA to enqueue and observe throughput
+- Clean layered architecture (Domain / Infrastructure / API / Web)
+- EF Core with SQL Server and fluent entity configurations
+- Resiliency with Polly retries and structured event tracking per work item
+- In-memory caching for list results
+- Simple web UI to enqueue items, filter results, and observe throughput
 
-> It’s intentionally domain-neutral: perfect to showcase strong SWE fundamentals without screaming “tailored for P&C insurance”.
+> This project is intentionally domain-neutral so it highlights strong software engineering fundamentals without being tied to a single industry use case.  
 
 ---
 
-## Run locally
+## Run Locally
 
-### Prereqs
+### Prerequisites
 - .NET 8 SDK
-- SQL Server LocalDB (default on Windows with Visual Studio). You can point to any SQL Server.
+- SQL Server LocalDB (default with Visual Studio on Windows) or any SQL Server instance
 
 ### 1) Restore & build
 ```bash
