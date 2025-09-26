@@ -1,0 +1,6 @@
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\AtlasQueue.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\AtlasQueue.Api.AssemblyInfoInputs.cache
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\AtlasQueue.Api.AssemblyInfo.cs
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\AtlasQueue.Api.csproj.CoreCompileInputs.cache
+C:\Users\juliu\Downloads\Projects\AtlasQueue\AtlasQueue.Api\obj\Debug\net8.0\AtlasQueue.Api.MvcApplicationPartsAssemblyInfo.cache

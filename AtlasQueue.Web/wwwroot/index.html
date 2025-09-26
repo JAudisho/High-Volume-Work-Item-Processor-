@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AtlasQueue Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: 8px 6px; text-align: left; }
+    .row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    button { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; background: #fff; cursor: pointer; }
+    button:hover { background: #f9fafb; }
+    input, select, textarea { padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; width: 100%; }
+    code { background: #f3f4f6; padding: 1px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AtlasQueue</h1>
+    <small>Minimal queue demo (API + background processing)</small>
+  </header>
+
+  <div class="row">
+    <div class="card">
+      <h3>Stats</h3>
+      <pre id="stats">Loading…</pre>
+    </div>
+    <div class="card">
+      <h3>Enqueue Work Item</h3>
+      <label>External Ref</label>
+      <input id="ext" placeholder="EXT-9001" />
+      <label>Payload JSON</label>
+      <textarea id="payload" rows="4">{ "customerId": 42, "amount": 15 }</textarea>
+      <label>Priority</label>
+      <select id="prio">
+        <option>Low</option><option selected>Medium</option><option>High</option>
+      </select>
+      <div style="margin-top:8px;">
+        <button id="enqueue">Enqueue</button>
+      </div>
+      <div id="enqueueResult" style="margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Work Items</h3>
+    <div style="display:flex; gap:8px; margin-bottom:8px;">
+      <input id="q" placeholder="Search ExternalRef" style="max-width:240px;" />
+      <select id="status" style="max-width:200px;">
+        <option value="">Any status</option>
+        <option>Queued</option>
+        <option>Processing</option>
+        <option>Completed</option>
+        <option>Failed</option>
+      </select>
+      <button id="refresh">Refresh</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th><th>External Ref</th><th>Status</th><th>Priority</th><th>Created (UTC)</th><th>Processed (UTC)</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="list"></tbody>
+    </table>
+    <div style="margin-top:8px;">
+      <button id="prev">Prev</button>
+      <span id="pageinfo"></span>
+      <button id="next">Next</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
