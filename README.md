@@ -1,7 +1,3 @@
-
-## High-Volume-Work-Item-Processor
-
-```markdown
 # High Volume Work Item Processor
 
 Background processing demo on .NET 8 with batching, back pressure, and retries. Backed by SQL Server with indexes, views, and a paged search procedure.
