@@ -1,29 +1,37 @@
-# AtlasQueue
 
-A compact, production-style example of a **high-volume background processing system** built with **.NET 8**, **ASP.NET Core**, **EF Core (SQL Server)**, and **async channels**, with a lightweight static dashboard.  
+## High-Volume-Work-Item-Processor
 
-It showcases patterns for **scalable, reliable, and observable processing** that are common in enterprise systems.  
+```markdown
+# High Volume Work Item Processor
 
-## Key Features
-- Batch dequeue and processing using `BackgroundService`
-- Bounded channel for back-pressure (`System.Threading.Channels`)
-- Clean layered architecture (Domain / Infrastructure / API / Web)
-- EF Core with SQL Server and fluent entity configurations
-- Resiliency with Polly retries and structured event tracking per work item
-- In-memory caching for list results
-- Simple web UI to enqueue items, filter results, and observe throughput
+Background processing demo on .NET 8 with batching, back pressure, and retries. Backed by SQL Server with indexes, views, and a paged search procedure.
 
-> This project is intentionally domain-neutral so it highlights strong software engineering fundamentals without being tied to a single industry use case.  
+## Stack
+.NET 8, ASP.NET Core, EF Core, SQL Server, BackgroundService
 
----
-
-## Run Locally
-
-### Prerequisites
+## Prerequisites
 - .NET 8 SDK
-- SQL Server LocalDB (default with Visual Studio on Windows) or any SQL Server instance
+- Docker Desktop (for SQL Server)
 
-### 1) Restore & build
+## Run
+1. Start SQL Server  
+   `docker compose -f docker/docker-compose.yml up -d` (if present) or use local SQL
+2. Configure connection string  
+   Set `ConnectionStrings:Sql` for the API.
+3. Create database and run  
+   `dotnet ef database update` (project args as needed)  
+   `dotnet run --project <ApiProjectPath>`  
+   Open Swagger.
+
+## SQL pack
+Run in SSMS or sqlcmd:
+1) `sql/01_indexes.sql`  
+2) `sql/02_views.sql`  
+3) `sql/03_proc_search.sql`  
+4) `sql/04_perf_check.sql`
+
+## Quick test (curl)
+List latest items:
 ```bash
-dotnet restore
-dotnet build -c Release
+curl "http://localhost:5000/api/work-items?page=1&pageSize=25"
+
